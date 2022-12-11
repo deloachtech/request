@@ -1,7 +1,7 @@
 Request
 ========
 
-The `Request` class used for our projects.
+The `Request` class used in our projects.
 
 
 Installation
