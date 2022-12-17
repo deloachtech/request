@@ -43,8 +43,10 @@ trait ValidateTrait
 
     public function validateEmail(string $elementName = 'email'): self
     {
-        if (!filter_var($this->values[$elementName], FILTER_VALIDATE_EMAIL)) {
-            $this->errors[$elementName][] = "Invalid email address.";
+        if(!empty($this->values[$elementName])) {
+            if (!filter_var($this->values[$elementName], FILTER_VALIDATE_EMAIL)) {
+                $this->errors[$elementName][] = "Invalid email address.";
+            }
         }
         return $this;
     }
