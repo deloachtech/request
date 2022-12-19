@@ -17,10 +17,19 @@ class Request
 
     private $values;
     private $errors = [];
+    private $time;
+
 
     public function __construct()
     {
         $this->values = $this->isPost() ? $_POST : $_GET;
+        $this->time = $_SERVER['REQUEST_TIME'] ?? time();
+    }
+
+
+    public function getTime(): int
+    {
+        return $this->time;
     }
 
 
@@ -40,7 +49,7 @@ class Request
 
     public function value(string $name)
     {
-        return $this->values[$name]??null;
+        return $this->values[$name] ?? null;
     }
 
 
@@ -70,7 +79,6 @@ class Request
         }
         return $errors;
     }
-
 
 
 }
