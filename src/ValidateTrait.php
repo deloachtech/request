@@ -24,7 +24,7 @@ trait ValidateTrait
 
     public function validateStringLength(string $elementName, $min, $max = null): self
     {
-        $len = strlen($this->values[$elementName]);
+        $len = strlen($this->values[$elementName]??null);
 
         if ($len < $min) {
             if ($max) {
