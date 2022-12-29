@@ -49,7 +49,7 @@ class Request
 
     public function value(string $name)
     {
-        return $this->values[$name] ?? null;
+        return !empty($this->values[$name]) ? $this->values[$name] : null;
     }
 
 
